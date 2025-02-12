@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <nav class="flex justify-end bg-green-300 p-4 space-x-7">
+    <div class="b1 hover:underline hover:skew-4">
+        <a class="x" href="/">Home</a>
+    </div>
+    <div class="b2 hover:underline hover:skew-4">
+        <a class="y" href="/about">About</a>
+    </div>
+  </nav>
+  
+    <p class="text-2xl p-4"></p>
+ 
+  <!-- //js code -->
+<script>
+   
+let btn1=document.querySelector(".x");
+let btn2=document.querySelector(".y");
+let par=document.querySelector('p');
+
+btn2.addEventListener("click",async (e)=>{
+    e.preventDefault();
+let p=await axios.get("http://localhost:8080/about");
+
+par.innerHTML=`${p.data}`;
+
+});
+
+
+btn1.addEventListener("click",async (e)=>{
+    e.preventDefault();
+let p=await axios.get("http://localhost:8080");
+
+par.innerHTML=`${p.data}`;
+
+
+
+
+});
+</script>
+</body>
+</html>
